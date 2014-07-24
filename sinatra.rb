@@ -16,5 +16,6 @@ $movieToEdit = Movie.new
 $currentTab = 'people'
 
 get '/' do
+	$currentTab = ''
 	erb :index
 end
