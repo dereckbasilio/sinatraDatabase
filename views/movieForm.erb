@@ -1,0 +1,13 @@
+<form name="movieForm" action="/<%= $action %>" method="post">
+	<div>
+		<input type="text" placeholder="Enter a Movie Title" name="movieTitle" value="<%= $movieToEdit.movieTitle %>" autofocus required>
+	</div>
+	<div>
+		<input type="text" placeholder="Enter the Rating" name="rating" value="<%= $movieToEdit.rating %>" required>
+	</div>
+	<div>
+		<input type="text" placeholder="Enter the number of stars" name="stars" value="<%= $movieToEdit.stars %>" required>
+	</div>
+	<button type="submit" class="btn btn-primary">Save</button>
+	<a href="/movieList" class="btn btn-default">Cancel</a>
+</form>

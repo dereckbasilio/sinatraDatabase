@@ -1,38 +1,5 @@
-<p id="validationError"></p>
+<h2>Sinatra Database</h2>
 <hr>
-<a class="btn btn-success" href="/newPerson">Add</a>
-<table class="table table-bordered table-striped">
-	<thead>
-		<tr>
-			<td></td>
-			<td>ID</td>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Sex</td>
-			<td>Phone Number</td>
-			<td>Hobbies</td>
-		</tr>
-	</thead>
-	<tbody>
-		<% @people.each do |person| %>
-		<tr>
-			<td>
-				<a href="/edit?id=<%= person.id %>"><i class="glyphicon glyphicon-edit"></i></a> |
-				<a href="/delete?id=<%= person.id %>" class="removeButton"><i class="glyphicon glyphicon-remove"></i></a>
-			</td>
-			<td><%= person.id %></td>
-			<td><%= person.firstName %></td>
-			<td><%= person.lastName %></td>
-			<td><%= person.sex %></td>
-			<td><%= person.phoneNumber %></td>
-			<td>
-				<% person.hobbies.each do |hobby| %>
-					<% if hobby != nil %>
-						<%= hobby %><br>
-					<% end %>
-				<% end %>
-			</td>
-		</tr>
-		<% end %>
-	</tbody>
-</table>
+<ul>
+
+</ul>
