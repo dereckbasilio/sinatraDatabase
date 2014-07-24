@@ -21,7 +21,7 @@ end
 get '/delete' do
 	session[:people].delete_if {|person| person.id.to_s == params[:id]}
 
-	redirect to ('/personList')
+	redirect to('/personList')
 end
 
 get '/edit' do
@@ -43,5 +43,5 @@ post '/update' do
 	$male = ''
 	$female = ''
 
-	redirect to ('/personList')
+	redirect to('/personList')
 end
