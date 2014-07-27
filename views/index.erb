@@ -1,6 +1,6 @@
 <h2>Sinatra Database</h2>
 <hr>
 <div class="list-group">
-	<a  class="list-group-item" href="/personList"><i class="fa fa-child"></i> People</a>
-	<a  class="list-group-item" href="/movieList"><i class="fa fa-file-video-o"></i> Movies</a>
+	<a  class="list-group-item" href="/personList"><i class="fa fa-child"></i> People <span class="badge"><%= session[:people].count %></span></a>
+	<a  class="list-group-item" href="/movieList"><i class="fa fa-file-video-o"></i> Movies <span class="badge"><%= session[:movies].count %></span></a>
 </div>

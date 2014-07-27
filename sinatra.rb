@@ -18,20 +18,32 @@ $currentTab = ''
 $user = 'sdb'
 $password = 'scoobydoo'
 
+$currentUser = ''
+$curentPassword = ''
+
 get '/' do
 	$action = 'login'
 	erb :loginPage
 end
 
 post '/login' do
-	if params[:user] == $user && params[:password] == $password
-		redirect to('/index')
-	else
-		redirect to('/')
-	end
+	$currentUser = params[:user]
+	$curentPassword = params[:password]
+
+	redirect to('/') if not($currentUser == $user and $curentPassword == $password)
+
+	redirect to('/index')
 end
 
 get '/index' do
+	redirect to('/') if not($currentUser == $user and $curentPassword == $password)
 	$currentTab = ''
 	erb :index
+end
+
+module Rating
+	G = "G"
+	PG = "PG"
+	PG_13 = "PG-13"
+	R = "R"
 end

@@ -3,10 +3,21 @@
 		<input type="text" placeholder="Enter a Movie Title" name="movieTitle" value="<%= $movieToEdit.movieTitle %>" autofocus required>
 	</div>
 	<div>
-		<input type="text" placeholder="Enter the Rating" name="rating" value="<%= $movieToEdit.rating %>" required>
+		<select class="form-control" name="rating" style="width:75px">
+			<% Rating.constants.each do |rate| %>
+
+				<option value="<%= Rating.const_get rate %>" <%= "selected" if $movieToEdit.rating == Rating.const_get(rate)%>><%= Rating.const_get rate %></option>
+
+			<%end%>
+		</select>
 	</div>
 	<div>
-		<input type="text" placeholder="Enter the number of stars" name="stars" value="<%= $movieToEdit.stars %>" required>
+		<img id="star_1" class="starsRating" src="../star.gif">
+		<img id="star_2" class="starsRating" src="../no-star.png">
+		<img id="star_3" class="starsRating" src="../no-star.png">
+		<img id="star_4" class="starsRating" src="../no-star.png">
+		<img id="star_5" class="starsRating" src="../no-star.png">
+		<input type="hidden" name="stars" value="<%= $movieToEdit.stars || 1 %>">
 	</div>
 	<button type="submit" class="btn btn-primary">Save</button>
 	<a href="/movieList" class="btn btn-default">Cancel</a>

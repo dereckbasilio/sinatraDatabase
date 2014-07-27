@@ -1,0 +1,25 @@
+<h2>Add New Person</h2>
+<form name="personForm" action="/<%= $action %>" onsubmit="return validateForm()" method="post">
+	<div>
+		<input type="text" placeholder="Enter your first name" name="firstName" value="<%= $personToEdit.firstName %>" autofocus required>
+		<input type="text" placeholder="Enter your last name" name="lastName" value="<%= $personToEdit.lastName %>" required>
+	</div>
+	<div>
+		<input type="radio" name="sex" value="male" <%= $male %> checked>Male
+		<input type="radio" name="sex" value="female" <%= $female %>>Female
+	</div>
+	<div>
+		<input type="text" placeholder="(xxx) xxx-xxxx" name="phoneNumber" value="<%= $personToEdit.phoneNumber %>">
+	</div>
+	<p>Do you have hobbies?</p>
+	<div class="radio"><label><input type="radio" name="showHobbies" value="yes">Yes</label></div>
+	<div class="radio"><label><input type="radio" name="showHobbies" value="no" checked>No</label></div>
+	<fieldset id="hobbies" class="hidden">
+		<div class="checkbox"><label><input type="checkbox" name="hobby[videoGames]" value="Video Games">Video Games</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="hobby[skateboarding]" value="Skateboarding">Skateboarding</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="hobby[reading]" value="Reading">Reading</label></div>
+		<div class="checkbox"><label><input type="checkbox" name="hobby[stampCollecting]" value="Stamp Collecting">Stamp Collecting</label></div>
+	</fieldset>
+	<button type="submit" class="btn btn-primary">Save</button>
+	<a href="/personList" class="btn btn-default">Cancel</a>
+</form>

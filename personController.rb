@@ -7,7 +7,7 @@ get '/personList' do
 end
 
 get '/newPerson' do
-	erb :form
+	erb :personForm
 end
 
 post '/addPerson' do
@@ -28,7 +28,7 @@ get '/edit' do
 	$action = 'update'	
 	$personToEdit = session[:people][session[:people].index {|person| person.id.to_s == params[:id]}]
 	$personToEdit.sex == 'male' ? $male = 'checked' : $female = 'checked'
-	erb :form
+	erb :personForm
 end
 
 post '/update' do

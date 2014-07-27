@@ -30,5 +30,14 @@ $ ->
 		bootbox.confirm "Are you sure?", (result) ->
 			window.location = self.attr('href') if result
 
+	$(".starsRating").hover ->
+		currentStar = parseInt $(@).attr("id").split("_")[1]
+		$("input[name='stars']").val currentStar
+		for i in [1..5]
+			if i <= currentStar
+				$("#star_#{i}").attr "src", "../star.gif"
+			else
+				$("#star_#{i}").attr "src", "../no-star.png"
+
 nameFormatIsInvalid = (nameFormat) ->
 	nameFormat.test(firstName) && nameFormat.test(lastName)

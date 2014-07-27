@@ -30,7 +30,7 @@ $(function() {
       return $("#hobbies").addClass('hidden');
     }
   });
-  return $(".removeButton").click(function() {
+  $(".removeButton").click(function() {
     var self;
     self = $(this);
     event.preventDefault();
@@ -39,6 +39,20 @@ $(function() {
         return window.location = self.attr('href');
       }
     });
+  });
+  return $(".starsRating").hover(function() {
+    var currentStar, i, _i, _results;
+    currentStar = parseInt($(this).attr("id").split("_")[1]);
+    $("input[name='stars']").val(currentStar);
+    _results = [];
+    for (i = _i = 1; _i <= 5; i = ++_i) {
+      if (i <= currentStar) {
+        _results.push($("#star_" + i).attr("src", "../star.gif"));
+      } else {
+        _results.push($("#star_" + i).attr("src", "../no-star.png"));
+      }
+    }
+    return _results;
   });
 });
 
