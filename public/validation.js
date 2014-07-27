@@ -2,7 +2,7 @@
 var nameFormatIsInvalid;
 
 $(function() {
-  var validateForm;
+  var showHobbies, validateForm;
   validateForm = function() {
     var firstName, lastName, nameFormat, phoneFormat, phoneNumber, sex, validationErrorMessage;
     firstName = document.forms["personForm"]["firstName"].value;
@@ -23,12 +23,15 @@ $(function() {
       return false;
     }
   };
-  $("input[name='showHobbies']").click(function() {
-    if ($(this).val() === 'yes') {
+  showHobbies = function() {
+    if ($("input[name='showHobbies']:checked").val() === "yes") {
       return $("#hobbies").removeClass('hidden');
     } else {
       return $("#hobbies").addClass('hidden');
     }
+  };
+  $("input[name='showHobbies']").click(function() {
+    return showHobbies();
   });
   $(".removeButton").click(function() {
     var self;
@@ -40,7 +43,7 @@ $(function() {
       }
     });
   });
-  return $(".starsRating").hover(function() {
+  $(".starsRating").hover(function() {
     var currentStar, i, _i, _results;
     currentStar = parseInt($(this).attr("id").split("_")[1]);
     $("input[name='stars']").val(currentStar);
@@ -54,6 +57,7 @@ $(function() {
     }
     return _results;
   });
+  return showHobbies();
 });
 
 nameFormatIsInvalid = function(nameFormat) {

@@ -17,12 +17,16 @@ $ ->
 		unless phoneFormat.test phoneNumber
 			validationErrorMessage += "Phone Numbers Must be in the following format: (xxx) xxx-xxxx"
 			$("#validationError").html validationErrorMessage
-			return false
-	$("input[name='showHobbies']").click ->
-		if $(this).val() == 'yes'
+			return false		
+
+	showHobbies = ->
+		if $("input[name='showHobbies']:checked").val() == "yes"
 			$("#hobbies").removeClass 'hidden'
 		else
 			$("#hobbies").addClass 'hidden'
+
+	$("input[name='showHobbies']").click ->
+		showHobbies()
 
 	$(".removeButton").click ->
 		self = $(this)
@@ -38,6 +42,8 @@ $ ->
 				$("#star_#{i}").attr "src", "../star.gif"
 			else
 				$("#star_#{i}").attr "src", "../no-star.png"
+
+	showHobbies()
 
 nameFormatIsInvalid = (nameFormat) ->
 	nameFormat.test(firstName) && nameFormat.test(lastName)

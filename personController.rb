@@ -1,6 +1,10 @@
 get '/personList' do
 	isLogedIn()
 
+	$personToEdit = Person.new
+	$male = ''
+	$female = ''
+
 	$currentTab = 'people'
 	$action = 'addPerson'
 	session[:people] ||= []
@@ -10,7 +14,7 @@ end
 
 get '/newPerson' do
 	isLogedIn()
-	
+
 	erb :personForm
 end
 
@@ -44,10 +48,6 @@ post '/update' do
 	person.lastName = params[:lastName]
 	person.sex = params[:sex]
 	person.phoneNumber = params[:phoneNumber]
-
-	$personToEdit = Person.new
-	$male = ''
-	$female = ''
 
 	redirect to('/personList')
 end
