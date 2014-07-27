@@ -1,4 +1,6 @@
 get '/personList' do
+	isLogedIn()
+
 	$currentTab = 'people'
 	$action = 'addPerson'
 	session[:people] ||= []
@@ -7,6 +9,8 @@ get '/personList' do
 end
 
 get '/newPerson' do
+	isLogedIn()
+	
 	erb :personForm
 end
 
@@ -25,6 +29,8 @@ get '/delete' do
 end
 
 get '/edit' do
+	isLogedIn()
+
 	$action = 'update'	
 	$personToEdit = session[:people][session[:people].index {|person| person.id.to_s == params[:id]}]
 	$personToEdit.sex == 'male' ? $male = 'checked' : $female = 'checked'

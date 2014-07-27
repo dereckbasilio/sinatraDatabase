@@ -1,4 +1,6 @@
 get '/movieList' do
+	isLogedIn()
+
 	$currentTab = 'movies'
 	$action = 'addMovie'
 	session[:movies] ||= []
@@ -7,6 +9,8 @@ get '/movieList' do
 end
 
 get '/newMovie' do
+	isLogedIn()
+
 	erb :movieForm
 end
 
@@ -23,6 +27,8 @@ get '/deleteMovie' do
 end
 
 get '/editMovie' do
+	isLogedIn()
+	
 	$action = 'updateMovie'	
 	$movieToEdit = session[:movies][session[:movies].index {|movie| movie.id.to_s == params[:id]}]
 	erb :movieForm
